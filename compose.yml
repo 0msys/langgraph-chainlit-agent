@@ -1,0 +1,11 @@
+services:
+  langgraph-agent:
+    container_name: langgraph-agent
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prd
+    env_file:
+      - graph_agent.env
+    ports:
+      - "8000:8000"

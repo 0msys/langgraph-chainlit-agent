@@ -1,0 +1,5 @@
+chainlit
+langchain
+langgraph
+langchain_openai
+duckduckgo-search

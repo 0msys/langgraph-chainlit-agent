@@ -1,0 +1,21 @@
+{
+  "name": "chainlit-container",
+  "service": "chainlit-dev",
+  "workspaceFolder": "/workspace",
+  "dockerComposeFile": "compose-dev.yml",
+  "remoteUser": "pyuser",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-python.vscode-pylance",
+        "ryu1kn.partial-diff",
+        "janisdd.vscode-edit-csv",
+        "mhutchie.git-graph",
+        "yzhang.markdown-all-in-one"
+      ]
+    }
+  },
+  "postStartCommand": "pip install -r requirements.txt"
+}
