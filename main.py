@@ -70,3 +70,5 @@ async def on_message(msg: cl.Message):
     # 最終的な応答を履歴に追加し、セッションに保存
     inputs["messages"].append(AIMessage(content=res))
     cl.user_session.set("inputs", inputs)
+
+    await agent_message.update()
