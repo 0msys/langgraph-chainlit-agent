@@ -2,7 +2,12 @@
 
 LangGraphによるシンプルなエージェントを、ChainlitでWebアプリとして利用できるようにします。
 
-詳しくは[こちらの記事](https://zenn.dev/0msys/articles/9873e25a610c5e)を参照してください。
+詳細は以下の記事で解説しています。
+
+- 最初の実装の記事
+  - https://zenn.dev/0msys/articles/9873e25a610c5e
+- マルチモーダル対応の記事
+  - https://zenn.dev/0msys/articles/3d38729aa7f75b
 
 
 ## 使い方

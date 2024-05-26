@@ -21,8 +21,18 @@ async def on_message(msg: cl.Message):
     app = cl.user_session.get("app")
     inputs = cl.user_session.get("inputs")
 
+    attachment_file_text = ""
+
+    for element in msg.elements:
+        attachment_file_text += f"- {element.name} (path: {element.path.replace("/workspace", ".")})\n" # agentが参照するときは./files/***/***.pngのようになるので、それに合わせる
+    
+    content = msg.content
+    
+    if attachment_file_text:
+        content += f"\n\n添付ファイル\n{attachment_file_text}"
+
     # ユーザーのメッセージを履歴に追加
-    inputs["messages"].append(HumanMessage(content=msg.content))
+    inputs["messages"].append(HumanMessage(content=content))
 
     # 空のメッセージを送信して、ストリーミングする場所を用意しておく
     agent_message = cl.Message(content="")
