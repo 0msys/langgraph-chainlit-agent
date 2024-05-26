@@ -34,9 +34,9 @@ auto_tag_thread = true
 # Authorize users to spontaneously upload files with messages
 [features.spontaneous_file_upload]
     enabled = true
-    accept = ["*/*"]
-    max_files = 20
-    max_size_mb = 500
+    accept = ["image/jpeg", "image/png", "image/gif", "image/webp"]    # 添付可能なファイル形式の設定
+    max_files = 3      # 添付できるファイルの数
+    max_size_mb = 20   # 添付ファイルのサイズ上限(MB)
 
 [features.audio]
     # Threshold for audio recording
