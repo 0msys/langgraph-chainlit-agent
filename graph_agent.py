@@ -15,8 +15,7 @@ from typing import TypedDict, Annotated, Sequence
 
 
 # 使用するモデルを選択。
-# 予算が許す場合はgpt-4oを推奨
-MODEL = "gpt-3.5-turbo-0125"
+MODEL = "gpt-4o-mini"
 # MODEL = "gpt-4o"
 
 

@@ -1,4 +1,4 @@
-FROM python:latest as base
+FROM python:3.11.9-bullseye as base
 
 ARG USERNAME=pyuser
 ARG USER_UID=1000

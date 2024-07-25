@@ -24,7 +24,7 @@ async def on_message(msg: cl.Message):
     attachment_file_text = ""
 
     for element in msg.elements:
-        attachment_file_text += f"- {element.name} (path: {element.path.replace("/workspace", ".")})\n" # agentが参照するときは./files/***/***.pngのようになるので、それに合わせる
+        attachment_file_text += f'- {element.name} (path: {element.path.replace("/workspace", ".")})\n' # agentが参照するときは./files/***/***.pngのようになるので、それに合わせる
     
     content = msg.content
     
@@ -56,7 +56,7 @@ async def on_message(msg: cl.Message):
                 # agentノードの場合は、function callの場合は、関数名と引数を表示
                 elif hasattr(message, "additional_kwargs") and message.additional_kwargs:
                     step_name = edge_name
-                    step_output = f"function call: {message.additional_kwargs["function_call"]["name"]}\n\n```\n{message.additional_kwargs["function_call"]["arguments"]}\n```"
+                    step_output = f'function call: {message.additional_kwargs["function_call"]["name"]}\n\n```\n{message.additional_kwargs["function_call"]["arguments"]}\n```'
                 
                 # その他のパターンではとりあえず何も表示しない
                 else:
