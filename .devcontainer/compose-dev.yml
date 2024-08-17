@@ -1,12 +1,12 @@
 services:
   chainlit-dev:
     container_name: chainlit-dev
-    build:
-      context: ../
-      dockerfile: Dockerfile
-      target: dev
+    image: "mcr.microsoft.com/devcontainers/python:3.12-bookworm"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    user: vscode
     tty: true
     env_file:
       - ../graph_agent.env
     volumes:
-      - ../:/workspace
+      - ../:/workspace:cached
+

@@ -1,44 +1,34 @@
-FROM python:3.11.9-bullseye as base
+# ベースイメージとしてPython 3.12を使用
+FROM python:3.12-bookworm
 
-ARG USERNAME=pyuser
+# ビルド時の引数を定義
+ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+# ユーザーとグループを作成
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
 
+# 環境変数を設定
 ENV PYTHONUSERBASE=/home/$USERNAME/.local
 ENV PATH=$PYTHONUSERBASE/bin:$PATH
 
+# ユーザーを切り替え
 USER $USERNAME
 
+# 作業ディレクトリを設定
 WORKDIR /workspace
 
-RUN pip install --user --upgrade pip && \
-    pip install --user --upgrade setuptools
+# 必要なパッケージをインストール
+RUN pip install --user --upgrade pip setuptools poetry
 
+# ソースコードをコピー
+COPY --chown=$USERNAME:$USERNAME . /workspace
 
-FROM base as dev
+# 依存関係をインストール
+RUN poetry config virtualenvs.create true \
+    && poetry install --no-dev --no-interaction --no-ansi
 
-USER root
-
-RUN apt-get update \
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME
-
-USER $USERNAME
-
-CMD [ "bash" ]
-
-
-FROM base as prd
-
-USER root
-COPY . /workspace
-RUN chown -R $USERNAME:$USERNAME /workspace
-
-USER $USERNAME
-RUN pip install --user -r requirements.lock
-
-CMD ["chainlit", "run", "main.py"]
+# アプリケーションを実行
+CMD ["poetry", "run", "chainlit", "run", "main.py"]

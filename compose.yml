@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: prd
     env_file:
       - graph_agent.env
     ports:
