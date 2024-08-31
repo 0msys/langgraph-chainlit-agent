@@ -31,4 +31,4 @@ RUN poetry config virtualenvs.create true \
     && poetry install --no-dev --no-interaction --no-ansi
 
 # アプリケーションを実行
-CMD ["poetry", "run", "chainlit", "run", "main.py"]
+CMD ["poetry", "run", "chainlit", "run", "src/main.py"]
