@@ -1,0 +1,16 @@
+{
+  "explorer.sortOrder": "type",
+  "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter",
+      "editor.formatOnSave": true
+  },
+  "cSpell.words": [
+    "ainvoke",
+    "astream",
+    "chainlit",
+    "langchain",
+    "langgraph",
+    "openai",
+    "pytz"
+  ]
+}
