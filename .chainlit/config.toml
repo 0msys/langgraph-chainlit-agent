@@ -19,9 +19,6 @@ allow_origins = ["*"]
 # follow_symlink = false
 
 [features]
-# Show the prompt playground
-prompt_playground = true
-
 # Process and display HTML in messages. This can be a security risk (see https://stackoverflow.com/questions/19603097/why-is-it-dangerous-to-render-user-generated-html-or-javascript)
 unsafe_allow_html = false
 
@@ -52,24 +49,20 @@ auto_tag_thread = true
     # Sample rate of the audio
     sample_rate = 44100
 
+edit_message = true
+
 [UI]
-# Name of the app and chatbot.
-name = "Chatbot"
+# Name of the assistant.
+name = "Assistant"
 
-# Show the readme while the thread is empty.
-show_readme_as_default = true
-
-# Description of the app and chatbot. This is used for HTML tags.
+# Description of the assistant. This is used for HTML tags.
 # description = ""
 
 # Large size content are by default collapsed for a cleaner ui
 default_collapse_content = true
 
-# The default value for the expand messages settings.
-default_expand_messages = false
-
-# Hide the chain of thought details from the user in the UI.
-hide_cot = false
+# Chain of Thought (CoT) display mode. Can be "hidden", "tool_call" or "full".
+cot = "full"
 
 # Link to your github repo. This will add a github button in the UI's header.
 # github = ""
@@ -94,6 +87,7 @@ hide_cot = false
 # custom_build = "./public/build"
 
 [UI.theme]
+    default = "dark"
     #layout = "wide"
     #font_family = "Inter, sans-serif"
 # Override default MUI light theme. (Check theme.ts)
@@ -105,6 +99,9 @@ hide_cot = false
         #main = "#F80061"
         #dark = "#980039"
         #light = "#FFE7EB"
+    [UI.theme.light.text]
+        #primary = "#212121"
+        #secondary = "#616161"
 
 # Override default MUI dark theme. (Check theme.ts)
 [UI.theme.dark]
@@ -115,7 +112,9 @@ hide_cot = false
         #main = "#F80061"
         #dark = "#980039"
         #light = "#FFE7EB"
-
+    [UI.theme.dark.text]
+        #primary = "#EEEEEE"
+        #secondary = "#BDBDBD"
 
 [meta]
-generated_by = "1.1.202"
+generated_by = "1.1.402"

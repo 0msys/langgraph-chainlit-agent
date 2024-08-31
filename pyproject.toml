@@ -4,12 +4,13 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
-chainlit = "1.1.202"
-langchain = "0.2.1"
-langgraph = "0.0.55"
-langchain-openai = "0.1.7"
-langchain-community = "0.2.1"
-duckduckgo-search = "6.1.0"
+chainlit = "^1.1.402"
+langchain = "^0.2.15"
+langgraph = "^0.2.14"
+langchain-openai = "^0.1.23"
+langchain-community = "^0.2.14"
+duckduckgo-search = "^6.2.11"
+pytz = "^2024.1"
 
 
 [build-system]
