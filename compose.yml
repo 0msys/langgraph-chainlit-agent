@@ -8,3 +8,25 @@ services:
       - graph_agent.env
     ports:
       - "8000:8000"
+
+  # VOICEVOX Engineは環境に合わせて以下のいずれかを起動する(可能ならGPUを使用することを推奨)
+  # CPUのみを使用する場合
+  voicevox_engine:
+    image: voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+    ports:
+      - "50021:50021"
+    tty: true
+
+  # Nvidia GPUを使用する場合
+  # voicevox_engine:
+  #   image: voicevox/voicevox_engine:nvidia-ubuntu20.04-latest
+  #   ports:
+  #     - "50021:50021"
+  #   tty: true
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
