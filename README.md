@@ -42,6 +42,12 @@ docker compose down
 
 ### 開発方法
 
+graph_agent.envに以下を追記します。
+
+```
+VOICEVOX_API_DOMAIN=http://voicevox_engine-dev:50021/
+```
+
 自作Toolを追加するなど、開発を行う場合は、このディレクトリをdevcontainerとして開いてください。
 
 devcontainerが開いたら、以下のコマンドを実行してください。
@@ -70,3 +76,14 @@ python src/test_agent.py
 python src/test_agent.py invoke
 ```
 (何も渡さない場合は、"stream"がデフォルトで実行されます。)
+
+
+#### VOICEVOXのみの動作確認
+
+VOICEVOXのみの動作確認を行うためには、以下のコマンドを実行してください。
+
+```
+python src/services/voicevox.py
+```
+
+問題が無ければ、output.wavが生成されます。
