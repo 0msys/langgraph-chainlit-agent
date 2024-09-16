@@ -10,6 +10,8 @@ LangGraphによるシンプルなエージェントを、ChainlitでWebアプリ
   - https://zenn.dev/0msys/articles/3d38729aa7f75b
 - ライブラリアップデートの記事
   - https://zenn.dev/0msys/articles/49ebb76cea1af6
+- VOICEVOXによるTTSの記事
+  - https://zenn.dev/0msys/articles/ac55214d8d95cd
 
 ## 使い方
 
